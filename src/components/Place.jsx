@@ -12,7 +12,10 @@ const Place = ({ setMyPlaces }) => {
     e.preventDefault();
     setStatus("loading");
 
-    const response = await myAxios("/api/v1/client?query=" + query, "GET");
+    const response = await myAxios(
+      "/v2/local/search/keyword.json?query=" + query,
+      "GET",
+    );
     setStatus(response.status);
     console.log(response.body);
 
